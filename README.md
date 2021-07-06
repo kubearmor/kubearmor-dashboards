@@ -3,7 +3,7 @@
 KubeArmor provides a dashboard by integrating with Logstash + Elasticsearch + Kibana.
 
 For this, KubeArmor, KafkaClient, and Kafka should be deployed.  
-If you didn't set up KubeArmor's Kafka Client and the Kafka system, first follow the steps described in [KafkaClient Deployment](https://github.com/kubearmor/kubearmor-kafka-client).
+If you didn't set up KubeArmor's Kafka Client or the Kafka system, please follow the steps described in [KafkaClient](https://github.com/kubearmor/kubearmor-kafka-client).
 
 If those are ready, you can deploy ELK now.
 
