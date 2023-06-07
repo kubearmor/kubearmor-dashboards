@@ -1,39 +1,16 @@
-# Integration with ELK
+# KubeArmor Dashboards
 
-KubeArmor provides a dashboard by integrating with Logstash + Elasticsearch + Kibana.
+<div align="center">
+<img src="https://github.com/kubearmor/KubeArmor/blob/main/.gitbook/assets/logo.png" width="400"/>
+  
+  
+<br />
+    <h1>KubeArmor Dashboards</h1>
+<p>KubeArmor Dashboards provide users with visualization options to gain insights into policy violations and simplify log analysis, enhance security risk identification, and offer valuable metrics from KubeArmor.</p>
+<a href="https://join.slack.com/t/kubearmor/shared_invite/zt-1ltmqdbc6-rSHw~LM6MesZZasmP2hAcA"><img src="https://img.shields.io/badge/Join%20Our%20Community-Slack-blue" height="auto" width="auto" /></a>
+</div>
 
-For this, KubeArmor, KafkaClient, and Kafka should be deployed.  
-If you didn't set up KubeArmor's Kafka Client or the Kafka system, please follow the steps described in [KafkaClient](https://github.com/kubearmor/kubearmor-kafka-client).
+## Supported Options
 
-If those are ready, you can deploy ELK now. Note that the ELK stack will be deployed in the "kubearmor" namespace.
-
-```
-$ cd kubearmor-elk-stack
-~/kubearmor-elk-stack$ kubectl apply -f elasticsearch.yaml
-~/kubearmor-elk-stack$ kubectl apply -f kibana.yaml
-~/kubearmor-elk-stack$ kubectl apply -f logstash.yaml
-```
-
-It takes a couple of minutes. Wait for the completed deployments of those services.
-
-# Kibana UI
-
-Using your browser, you can access the Kibana UI.
-
-```
-http://[the IP address of one of the cluster nodes]:30561
-```
-
-If you just set up the ELK environment, wait until you see 'kubearmor-YYYYMMDD' in [Management] - [Index Management].
-
-![Index Management](./res/kibana_index_management.png)
-
-After you see 'kubearmor' in the Index Management, go to [Management] - [Saved Objects] and import [kibana-export.json](https://github.com/kubearmor/kubearmor-elk-stack/blob/master/kibana-export.json).
-
-If you see the logs in [Discover], all works fine.
-
-![Discover](./res/kibana_discover.png)
-
-Now, feel free to make your own dashboard.
-
-![Dashboard](./res/kibana_dashboard.png)
+* [Kafka ELK stack](/kafka-elk/README.md)
+* [Elasticsearch Kibana](/elasticsearch-kibana/ek-dashboards.md)
