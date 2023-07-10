@@ -4,7 +4,7 @@ metadata:
   name: kibana
   labels:
     app: kibana
-  namespace: kube-system
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -24,7 +24,7 @@ spec:
           requests:
             cpu: 100m
         env:
-          - name: ELASTICSEARCH_URL
-            value: http://elasticsearch:9200
+        - name: ELASTICSEARCH_URL
+          value: http://elasticsearch.default.svc.cluster.local:9200
         ports:
         - containerPort: 5601

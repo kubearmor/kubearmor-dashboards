@@ -50,7 +50,7 @@ To View the DashBoards
 
 * Portforward the Kibana service
 ```
-kubectl port-forward deployment/kibana -n kube-system 5601:5601
+kubectl port-forward deployment/kibana -n default 5601:5601
 ```
 * Open up a browser and go to [localhost:5601](localhost:5601)
 * Go to sidebar and open ``Mangement`` -> ``Saved Objects`` -> ``Import``
