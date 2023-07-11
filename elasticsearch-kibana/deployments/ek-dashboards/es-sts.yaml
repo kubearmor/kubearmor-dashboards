@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: es-cluster
-  namespace: kube-system
+  namespace: default
 spec:
   serviceName: elasticsearch
   replicas: 3
@@ -18,10 +18,10 @@ spec:
       - name: elasticsearch
         image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
         resources:
-            limits:
-              cpu: 1000m
-            requests:
-              cpu: 100m
+          limits:
+            cpu: 1000m
+          requests:
+            cpu: 100m
         ports:
         - containerPort: 9200
           name: rest
@@ -33,18 +33,18 @@ spec:
         - name: data
           mountPath: /usr/share/elasticsearch/data
         env:
-          - name: cluster.name
-            value: k8s-logs
-          - name: node.name
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: discovery.seed_hosts
-            value: "es-cluster-0.elasticsearch,es-cluster-1.elasticsearch,es-cluster-2.elasticsearch"
-          - name: cluster.initial_master_nodes
-            value: "es-cluster-0,es-cluster-1,es-cluster-2"
-          - name: ES_JAVA_OPTS
-            value: "-Xms512m -Xmx512m"
+        - name: cluster.name
+          value: k8s-logs
+        - name: node.name
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: discovery.seed_hosts
+          value: "es-cluster-0.elasticsearch,es-cluster-1.elasticsearch,es-cluster-2.elasticsearch"
+        - name: cluster.initial_master_nodes
+          value: "es-cluster-0,es-cluster-1,es-cluster-2"
+        - name: ES_JAVA_OPTS
+          value: "-Xms512m -Xmx512m"
       initContainers:
       - name: fix-permissions
         image: busybox
@@ -70,7 +70,7 @@ spec:
       labels:
         app: elasticsearch
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: ["ReadWriteOnce"]
       # storageClassName: ""
       resources:
         requests:
