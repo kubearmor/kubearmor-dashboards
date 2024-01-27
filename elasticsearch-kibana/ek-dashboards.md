@@ -57,7 +57,7 @@ kubectl port-forward deployment/kibana -n default 5601:5601
 
 Drag and drop the file from ```res/export.ndjson```
 
-* Go to ``Dashboard`` section , selct ``KA``
+* Go to ``Dashboard`` section , select ``KA``
 
 * The visualization should be ready !!
 
